@@ -1,9 +1,10 @@
 workspace:
   path: .
 
+clone:
+  submodule_update_remote: true
+
 pipeline:
-  clone:
-    submodule_update_remote: true
 
   update-spectrum:
     image: no-cloud.fr/eve/git
