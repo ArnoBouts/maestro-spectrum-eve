@@ -16,9 +16,6 @@ pipeline:
     image: no-cloud.fr/eve/git
     commands:
       - cd maestro-spectrum
-      - pwd
-      - cat Dockerfile
-      - git status
       - git config --global user.name "Eve"
       - git config --global user.email "eve@no-cloud.fr"
       - git config --global push.default simple
