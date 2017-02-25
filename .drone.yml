@@ -1,3 +1,6 @@
+workspace:
+  path: .
+
 pipeline:
   update-spectrum:
     image: no-cloud.fr/eve/git
