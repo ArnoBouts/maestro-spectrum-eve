@@ -1,12 +1,8 @@
 pipeline:
-  clone:
-    recursive: true
-    submodule_override: maestro-spectrum: https://github.com/ArnoBouts/maestro-spectrum.git
-    
   update-spectrum:
     image: no-cloud.fr/eve/git
     commands:
-      - /eve.sh git://github.com/hanzz/spectrum2.git master SPECTRUM_VERSION Dockerfile
+      - /eve.sh git://github.com/hanzz/spectrum2.git master SPECTRUM_VERSION maestro-spectrum/Dockerfile
 
   deploy:
     image: no-cloud.fr/eve/git
@@ -16,6 +12,7 @@ pipeline:
       - git config --global push.default simple
       - echo ${DRONE_REPO_LINK} | sed -e "s#https://#https://${GIT_USER}:${GIT_PASSWORD}@#1" >> ~/.git-credentials
       - git config --global credential.helper store
+      - cd maestro-spectrum
       - git add Dockerfile
       - git commit -m "Auto update"
       - git push origin master
