@@ -12,12 +12,12 @@ pipeline:
   deploy:
     image: no-cloud.fr/eve/git
     commands:
+      - cd maestro-spectrum
       - git config --global user.name "Eve"
       - git config --global user.email "eve@no-cloud.fr"
       - git config --global push.default simple
-      - echo ${DRONE_REPO_LINK} | sed -e "s/-eve//1" | sed -e "s#https://#https://${GIT_USER}:${GIT_PASSWORD}@#1" >> ~/.git-credentials
+      - git remote get-url origin | sed -e "s#https://#https://${GIT_USER}:${GIT_PASSWORD}@#1" >> ~/.git-credentials
       - git config --global credential.helper store
-      - cd maestro-spectrum
       - git add Dockerfile
       - git commit -m "Auto update"
       - git push origin master
