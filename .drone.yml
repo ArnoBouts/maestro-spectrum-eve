@@ -22,6 +22,8 @@ pipeline:
       - git config --global user.name "Eve"
       - git config --global user.email "eve@no-cloud.fr"
       - git config --global push.default simple
+      - git remote get-url origin | sed -e "s#https://#https://${GIT_USER}:${GIT_PASSWORD}@#1" >> ~/.git-credentials
+      - git config --global credential.helper store
       - git add Dockerfile
       - git commit -m "Auto update"
       - git remote get-url origin
