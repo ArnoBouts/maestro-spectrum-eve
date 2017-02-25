@@ -4,6 +4,11 @@ pipeline:
     commands:
       - /eve.sh git://github.com/hanzz/spectrum2.git master SPECTRUM_VERSION maestro-spectrum/Dockerfile
 
+  update-telegram:
+    image: no-cloud.fr/eve/git
+    commands:
+      - /eve.sh https://github.com/majn/telegram-purple master TELEGRAM_VERSION maestro-spectrum/Dockerfile
+
   deploy:
     image: no-cloud.fr/eve/git
     commands:
