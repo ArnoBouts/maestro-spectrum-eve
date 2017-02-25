@@ -24,4 +24,5 @@ pipeline:
       - git config --global push.default simple
       - git add Dockerfile
       - git commit -m "Auto update"
+      - git remote get-url origin
       - git push
