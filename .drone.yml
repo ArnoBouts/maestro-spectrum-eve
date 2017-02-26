@@ -20,8 +20,10 @@ pipeline:
 
   update-hangouts:
     image: no-cloud.fr/eve/bitbucket
-    commands:
-      - /eve.sh St0ub/purple-hangouts default HANGOUTS_VERSION eve/Dockerfile
+    repository: St0ub/purple-hangouts
+    branch: default
+    variable: HANGOUTS_VERSION
+    file: eve/Dockerfile
 
   deploy:
     image: no-cloud.fr/eve
