@@ -9,21 +9,18 @@ pipeline:
     repository: git://github.com/hanzz/spectrum2.git
     branch: master
     variable: SPECTRUM_VERSION
-    file: eve/Dockerfile
 
   update-telegram:
     image: no-cloud.fr/eve/git
     repository: https://github.com/majn/telegram-purple
     branch: master
     variable: TELEGRAM_VERSION
-    file: eve/Dockerfile
 
   update-hangouts:
     image: no-cloud.fr/eve/bitbucket
     repository: St0ub/purple-hangouts
     branch: default
     variable: HANGOUTS_VERSION
-    file: eve/Dockerfile
 
   deploy:
     image: no-cloud.fr/eve
