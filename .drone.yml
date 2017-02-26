@@ -28,6 +28,7 @@ pipeline:
     image: no-cloud.fr/eve/git
     commands:
       - cd maestro-spectrum
+      - if [[ $(git status -s) == "" ]]; then echo "Allready up-to-date"; exit 0; fi
       - git config --global user.name "Eve"
       - git config --global user.email "eve@no-cloud.fr"
       - git config --global push.default simple
