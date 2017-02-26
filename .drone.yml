@@ -7,13 +7,17 @@ pipeline:
 
   update-spectrum:
     image: no-cloud.fr/eve/git
-    commands:
-      - /eve.sh git://github.com/hanzz/spectrum2.git master SPECTRUM_VERSION maestro-spectrum/Dockerfile
+    repository: git://github.com/hanzz/spectrum2.git
+    branch: master
+    variable: SPECTRUM_VERSION
+    file: maestro-spectrum/Dockerfile
 
   update-telegram:
     image: no-cloud.fr/eve/git
-    commands:
-      - /eve.sh https://github.com/majn/telegram-purple master TELEGRAM_VERSION maestro-spectrum/Dockerfile
+    repository: https://github.com/majn/telegram-purple
+    branch: master
+    variable: TELEGRAM_VERSION
+    file: maestro-spectrum/Dockerfile
 
   update-hangouts:
     image: no-cloud.fr/eve/bitbucket
