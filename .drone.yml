@@ -15,7 +15,7 @@ pipeline:
     commands:
       - /eve.sh https://github.com/majn/telegram-purple master TELEGRAM_VERSION maestro-spectrum/Dockerfile
 
-  update-hangouts
+  update-hangouts:
     image: no-cloud.fr/eve/bitbucket
     commands:
       - /eve.sh St0ub/purple-hangouts default TELEGRAM_VERSION maestro-spectrum/Dockerfile
