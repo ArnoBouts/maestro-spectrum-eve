@@ -1,9 +1,8 @@
 pipeline:
 
   clone:
-    image: no-cloud.fr/eve/git
-    commands:
-      - git clone $(echo ${DRONE_REPO_LINK} | sed -e 's/-eve//1') | sed -e "s#https://#https://${GIT_USER}:${GIT_PASSWORD}@#1"
+    image: no-cloud.fr/eve
+    action: clone
 
   update-spectrum:
     image: no-cloud.fr/eve/git
@@ -25,16 +24,6 @@ pipeline:
       - /eve.sh St0ub/purple-hangouts default HANGOUTS_VERSION maestro-spectrum/Dockerfile
 
   deploy:
-    image: no-cloud.fr/eve/git
-    commands:
-      - cd maestro-spectrum
-      - if [[ $(git status -s) == "" ]]; then echo "Allready up-to-date"; exit 0; fi
-      - git config --global user.name "Eve"
-      - git config --global user.email "eve@no-cloud.fr"
-      - git config --global push.default simple
-      - git remote get-url origin | sed -e "s#https://#https://${GIT_USER}:${GIT_PASSWORD}@#1" >> ~/.git-credentials
-      - git config --global credential.helper store
-      - git add Dockerfile
-      - git commit -m "Auto update"
-      - git remote get-url origin
-      - git push
+    image: no-cloud.fr/eve
+    git_user: ${GIT_USER}
+    git_password: ${GIT_PASSWORD}
