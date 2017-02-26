@@ -4,6 +4,11 @@ pipeline:
     image: no-cloud.fr/eve
     action: clone
 
+  update-fedora:
+    image: no-cloud.fr/eve/docker
+    base_image: library/fedora
+    tag: 23
+
   update-spectrum:
     image: no-cloud.fr/eve/git
     repository: git://github.com/hanzz/spectrum2.git
