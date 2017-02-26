@@ -18,7 +18,7 @@ pipeline:
   update-hangouts:
     image: no-cloud.fr/eve/bitbucket
     commands:
-      - /eve.sh St0ub/purple-hangouts default TELEGRAM_VERSION maestro-spectrum/Dockerfile
+      - /eve.sh St0ub/purple-hangouts default HANGOUTS_VERSION maestro-spectrum/Dockerfile
 
   deploy:
     image: no-cloud.fr/eve/git
