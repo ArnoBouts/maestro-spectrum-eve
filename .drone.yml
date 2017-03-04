@@ -3,7 +3,7 @@ pipeline:
   clone:
     image: no-cloud.fr/eve
     action: clone
-    branch: ${BRANCH}
+    git_branch: ${BRANCH}
 
   update-fedora:
     image: no-cloud.fr/eve/docker
