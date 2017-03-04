@@ -3,10 +3,11 @@ pipeline:
   clone:
     image: no-cloud.fr/eve
     action: clone
+    branch: ${BRANCH}
 
   update-fedora:
     image: no-cloud.fr/eve/docker
-    base_image: library/fedora
+    base_image: ${IMAGE}
     tag: 23
     variable: FROM_DIGEST
 
@@ -32,3 +33,10 @@ pipeline:
     image: no-cloud.fr/eve
     git_user: ${GIT_USER}
     git_password: ${GIT_PASSWORD}
+
+matrix:
+  include:
+    - BRANCH: master
+     IMAGE: library/fedora
+    - BRANCH: debian
+     IMAGE: library/debian
