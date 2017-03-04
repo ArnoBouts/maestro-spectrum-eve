@@ -8,7 +8,7 @@ pipeline:
   update-fedora:
     image: no-cloud.fr/eve/docker
     base_image: ${IMAGE}
-    tag: 23
+    tag: ${TAG}
     variable: FROM_DIGEST
 
   update-spectrum:
@@ -38,5 +38,7 @@ matrix:
   include:
     - BRANCH: master
       IMAGE: library/fedora
+      TAG: 23
     - BRANCH: debian
       IMAGE: library/debian
+      TAG: jessie
