@@ -37,6 +37,6 @@ pipeline:
 matrix:
   include:
     - BRANCH: master
-     IMAGE: library/fedora
+      IMAGE: library/fedora
     - BRANCH: debian
-     IMAGE: library/debian
+      IMAGE: library/debian
