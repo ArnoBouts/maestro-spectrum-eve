@@ -5,7 +5,7 @@ pipeline:
     action: clone
     git_branch: ${BRANCH}
 
-  update-fedora:
+  update-base-image:
     image: no-cloud.fr/eve/docker
     base_image: ${IMAGE}
     tag: ${TAG}
@@ -29,7 +29,7 @@ pipeline:
     branch: default
     variable: HANGOUTS_VERSION
 
-  deploy:
+  push:
     image: no-cloud.fr/eve
     git_user: ${GIT_USER}
     git_password: ${GIT_PASSWORD}
