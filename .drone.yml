@@ -13,7 +13,7 @@ pipeline:
 
   update-spectrum:
     image: no-cloud.fr/eve/git
-    repository: git://github.com/hanzz/spectrum2.git
+    repository: ${SPECTRUM}
     branch: master
     variable: SPECTRUM_VERSION
 
@@ -38,9 +38,12 @@ matrix:
     - BRANCH: maestro
       IMAGE: library/fedora
       TAG: 23
+      SPECTRUM: git://github.com/ArnoBouts/spectrum2.git
     - BRANCH: master
       IMAGE: library/fedora
       TAG: 23
+      SPECTRUM: git://github.com/hanzz/spectrum2.git
     - BRANCH: debian
       IMAGE: library/debian
       TAG: jessie
+      SPECTRUM: git://github.com/hanzz/spectrum2.git
