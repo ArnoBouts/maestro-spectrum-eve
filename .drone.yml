@@ -31,11 +31,13 @@ pipeline:
 
   push:
     image: no-cloud.fr/eve
-    git_user: ${GIT_USER}
-    git_password: ${GIT_PASSWORD}
+    secrets: [ git_user, git_password ]
 
 matrix:
   include:
+    - BRANCH: maestro
+      IMAGE: library/fedora
+      TAG: 23
     - BRANCH: master
       IMAGE: library/fedora
       TAG: 23
