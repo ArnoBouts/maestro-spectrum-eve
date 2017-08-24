@@ -1,6 +1,6 @@
 pipeline:
 
-  clone:
+  eve-clone:
     image: no-cloud.fr/eve
     action: clone
     git_branch: ${BRANCH}
@@ -29,7 +29,7 @@ pipeline:
     branch: default
     variable: HANGOUTS_VERSION
 
-  push:
+  eve-push:
     image: no-cloud.fr/eve
     secrets: [ git_user, git_password ]
 
