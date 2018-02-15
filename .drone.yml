@@ -25,7 +25,7 @@ pipeline:
 
   update-hangouts:
     image: no-cloud.fr/eve/bitbucket
-    repository: EionRobb/purple-hangouts
+    repository: ${HANGOUT}
     branch: default
     variable: HANGOUTS_VERSION
 
@@ -37,13 +37,16 @@ matrix:
   include:
     - BRANCH: maestro
       IMAGE: library/fedora
-      TAG: 27
+      TAG: 23
       SPECTRUM: git://github.com/ArnoBouts/spectrum2.git
+      HANGOUT: St0ub/purple-hangouts
     - BRANCH: master
       IMAGE: library/fedora
-      TAG: 23
+      TAG: 27
       SPECTRUM: git://github.com/hanzz/spectrum2.git
+      HANGOUT: EionRobb/purple-hangouts
     - BRANCH: debian
       IMAGE: library/debian
       TAG: jessie
       SPECTRUM: git://github.com/hanzz/spectrum2.git
+      HANGOUT: St0ub/purple-hangouts
